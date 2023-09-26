@@ -7,23 +7,24 @@ build:
   commands:
     build:
       pre-build:
-        - echo "------------------------------------------------pre-build_start--------------------------------------------"
+        - echo "---pre-build_start---"
         - env
-        - echo "------------------------------------------------pre-build_end--------------------------------------------
+        - echo "---pre-build_end---
       build:
-        - echo "------------------------------------------------build_start--------------------------------------------"
+        - echo "---build_start---"
         - env
         - npm install
         - npm run build
-        - echo "------------------------------------------------build_end--------------------------------------------"
+        - echo "---build_end---"
       post-build:
-        - echo "------------------------------------------------post-build_start--------------------------------------------"
+        - echo "---post-build_start---"
         - env
-        - echo "------------------------------------------------post-build_end--------------------------------------------
+        - echo "---post-build_end---
   run: 
     command: npm start
     network:
       port: 3000
+      
     env:
       - name: MYVAR
         value: "FOO"
