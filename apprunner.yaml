@@ -1,30 +1,20 @@
 version: 1.0
-runtime: nodejs16 
+runtime: nodejs16
 build:
-  env:
-    - name: MYVAR
-      value: "FOO"
   commands:
     build:
-      pre-build:
-        - echo "---pre-build_start---"
-        - env
-        - echo "---pre-build_end---
-      build:
-        - echo "---build_start---"
-        - env
-        - npm install
-        - npm run build
-        - echo "---build_end---"
-      post-build:
-        - echo "---post-build_start---"
-        - env
-        - echo "---post-build_end---
-  run: 
-    command: npm start
-    network:
-      port: 3000
-      
-    env:
-      - name: MYVAR
-        value: "FOO"
+      - echo "------------------------------------------------build_start--------------------------------------------"
+      - npm install
+      - npm run build 
+      - echo "------------------------------------------------build_done--------------------------------------------"
+  env:
+    - name: MYVAR
+      value: FOO
+run:
+  command: npm run start
+  network:
+    port: 3000
+    env: PORT
+  env:
+    - name: MYVAR
+      value: FOO
